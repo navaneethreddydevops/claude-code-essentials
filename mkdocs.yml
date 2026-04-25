@@ -1,0 +1,76 @@
+site_name: CDK Enterprise Platform
+site_description: Enterprise AWS CDK infrastructure — multi-account, Python
+site_author: Navaneeth Reddy
+docs_dir: docs
+repo_url: https://github.com/navaneethreddydevops/claude-code-essentials
+repo_name: navaneethreddydevops/claude-code-essentials
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - toc.integrate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Prerequisites & Setup: getting-started.md
+    - Bootstrap AWS Accounts: guides/bootstrap.md
+  - Architecture:
+    - Overview: architecture.md
+    - Global vs Regional Resources: reference/global-vs-regional.md
+    - Environment Configuration: reference/environments.md
+  - Guides:
+    - Adding a New Resource: guides/new-resource.md
+    - Adding a New Stack: guides/new-stack.md
+    - Adding a New Construct: guides/new-construct.md
+    - Multi-Region Deployments: guides/multi-region.md
+  - Reference:
+    - Stack Inventory: reference/stacks.md
+    - CI/CD Pipeline: reference/cicd.md

@@ -1,5 +1,8 @@
-.PHONY: install lint format test synth-dev synth-staging synth-prod \
-        deploy-dev deploy-staging deploy-prod diff-dev diff-staging diff-prod bootstrap
+.PHONY: install lint format test \
+        synth-dev synth-staging synth-prod \
+        deploy-dev deploy-staging deploy-prod \
+        diff-dev diff-staging diff-prod \
+        bootstrap docs-serve docs-build
 
 # uv — install from https://docs.astral.sh/uv/
 UV ?= uv
@@ -17,6 +20,16 @@ format:
 
 test:
 	$(UV) run pytest --cov=infra --cov-report=term-missing
+
+# ── Docs ──────────────────────────────────────────────────────────────────
+
+docs-serve:
+	$(UV) run --extra docs mkdocs serve
+
+docs-build:
+	$(UV) run --extra docs mkdocs build --strict
+
+# ── CDK ───────────────────────────────────────────────────────────────────
 
 synth-dev:
 	CDK_ENV=dev $(UV) run cdk synth

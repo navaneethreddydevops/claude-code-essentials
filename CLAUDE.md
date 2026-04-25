@@ -23,6 +23,8 @@ make synth-dev         # CDK_ENV=dev cdk synth
 make deploy-dev        # CDK_ENV=dev cdk deploy --all --profile dev
 make diff-prod         # CDK_ENV=prod cdk diff --all --profile prod
 make bootstrap         # one-time CDK bootstrap for all three accounts
+make docs-serve        # live-reload docs at http://127.0.0.1:8000
+make docs-build        # build docs to site/ (strict mode, fails on warnings)
 ```
 
 Run a single test file:
