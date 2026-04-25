@@ -2,11 +2,12 @@ name: Publish Docs
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - "docs/**"
       - "mkdocs.yml"
       - "pyproject.toml"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -18,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # mkdocs-material git-dates plugin needs full history
+          fetch-depth: 0
       - uses: astral-sh/setup-uv@v5
         with:
           enable-cache: true
