@@ -183,6 +183,7 @@ source = { editable = "." }
 dependencies = [
     { name = "aws-cdk-lib" },
     { name = "constructs" },
+    { name = "ruff" },
 ]
 
 [package.optional-dependencies]
@@ -212,6 +213,7 @@ requires-dist = [
     { name = "pymdown-extensions", marker = "extra == 'docs'", specifier = ">=10.7" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
     { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=5.0" },
+    { name = "ruff", specifier = ">=0.15.12" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.4" },
 ]
 provides-extras = ["dev", "docs"]

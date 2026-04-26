@@ -15,8 +15,10 @@ Usage:
 """
 
 import os
+from typing import cast
 
 import aws_cdk as cdk
+from aws_cdk.aws_iam import IRole
 
 from infra.config.accounts import ENVIRONMENTS
 from infra.stacks.global_stack import GlobalStack
@@ -61,7 +63,7 @@ PlatformStack(
     f"{prefix}Platform",
     env_config=env_config,
     vpc=networking.vpc,
-    app_role=global_stack.app_role,
+    app_role=cast(IRole, global_stack.app_role),
     env=regional_env,
     description=f"Platform layer – {env_name} – {env_config.account.region}",
 )
