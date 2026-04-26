@@ -13,8 +13,11 @@ Usage:
   CDK_ENV=prod    cdk deploy --all --profile prod
   CDK_ENV=dev     cdk synth
 """
+
 import os
+
 import aws_cdk as cdk
+
 from infra.config.accounts import ENVIRONMENTS
 from infra.stacks.global_stack import GlobalStack
 from infra.stacks.networking_stack import NetworkingStack

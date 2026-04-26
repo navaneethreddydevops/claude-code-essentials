@@ -1,7 +1,8 @@
 import aws_cdk as cdk
 from aws_cdk.assertions import Template
-from infra.stacks.networking_stack import NetworkingStack
+
 from infra.config.accounts import ENVIRONMENTS
+from infra.stacks.networking_stack import NetworkingStack
 
 
 def _make_stack(env_name: str = "dev") -> Template:
@@ -45,9 +46,11 @@ def test_tags_applied():
     template.has_resource_properties(
         "AWS::EC2::VPC",
         {
-            "Tags": cdk.assertions.Match.array_with([
-                {"Key": "Environment", "Value": "dev"},
-                {"Key": "ManagedBy", "Value": "CDK"},
-            ])
+            "Tags": cdk.assertions.Match.array_with(
+                [
+                    {"Key": "Environment", "Value": "dev"},
+                    {"Key": "ManagedBy", "Value": "CDK"},
+                ]
+            )
         },
     )

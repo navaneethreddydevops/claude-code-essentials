@@ -7,9 +7,11 @@ Put here:
   - ACM certificates used by CloudFront (must be us-east-1)
   - WAF WebACLs attached to CloudFront (must be us-east-1)
 """
+
 import aws_cdk as cdk
 from aws_cdk import aws_iam as iam
 from constructs import Construct
+
 from infra.config.accounts import EnvironmentConfig
 
 GLOBAL_REGION = "us-east-1"
@@ -74,5 +76,12 @@ class GlobalStack(cdk.Stack):
             description=f"GitHub Actions OIDC deploy role – {env_config.name}",
         )
 
-        cdk.CfnOutput(self, "AppRoleArn", value=self.app_role.role_arn, export_name=f"{id}-AppRoleArn")
-        cdk.CfnOutput(self, "DeployRoleArn", value=self.deploy_role.role_arn, export_name=f"{id}-DeployRoleArn")
+        cdk.CfnOutput(
+            self, "AppRoleArn", value=self.app_role.role_arn, export_name=f"{id}-AppRoleArn"
+        )
+        cdk.CfnOutput(
+            self,
+            "DeployRoleArn",
+            value=self.deploy_role.role_arn,
+            export_name=f"{id}-DeployRoleArn",
+        )

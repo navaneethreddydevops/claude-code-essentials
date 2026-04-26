@@ -1,7 +1,11 @@
 from aws_cdk import (
-    aws_iam as iam,
-    aws_kms as kms,
     RemovalPolicy,
+)
+from aws_cdk import (
+    aws_iam as iam,
+)
+from aws_cdk import (
+    aws_kms as kms,
 )
 from constructs import Construct
 

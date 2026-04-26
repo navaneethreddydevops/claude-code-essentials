@@ -1,9 +1,10 @@
 import aws_cdk as cdk
 from aws_cdk.assertions import Template
+
+from infra.config.accounts import ENVIRONMENTS
 from infra.stacks.global_stack import GlobalStack
 from infra.stacks.networking_stack import NetworkingStack
 from infra.stacks.platform_stack import PlatformStack
-from infra.config.accounts import ENVIRONMENTS
 
 
 def _make_stacks(env_name: str = "dev"):

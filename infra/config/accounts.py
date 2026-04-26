@@ -2,9 +2,10 @@
 Account and environment configuration for multi-account deployments.
 Add your AWS account IDs and regions here, or override via environment variables.
 """
+
+import os
 from dataclasses import dataclass, field
 from typing import Optional
-import os
 
 
 @dataclass

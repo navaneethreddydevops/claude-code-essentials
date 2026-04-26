@@ -2,9 +2,13 @@
 Platform stack — regional resources (compute, storage, etc.).
 Receives cross-stack references from GlobalStack (IAM) and NetworkingStack (VPC).
 """
+
 import aws_cdk as cdk
-from aws_cdk import aws_ec2 as ec2, aws_s3 as s3, aws_iam as iam
+from aws_cdk import aws_ec2 as ec2
+from aws_cdk import aws_iam as iam
+from aws_cdk import aws_s3 as s3
 from constructs import Construct
+
 from infra.config.accounts import EnvironmentConfig
 
 

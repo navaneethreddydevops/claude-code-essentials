@@ -1,8 +1,9 @@
 import aws_cdk as cdk
 from constructs import Construct
-from infra.constructs.vpc import EnterpriseVpc
-from infra.constructs.security import EnterpriseKmsKey
+
 from infra.config.accounts import EnvironmentConfig
+from infra.constructs.security import EnterpriseKmsKey
+from infra.constructs.vpc import EnterpriseVpc
 
 
 class NetworkingStack(cdk.Stack):
@@ -36,4 +37,6 @@ class NetworkingStack(cdk.Stack):
         self.vpc = self.enterprise_vpc.vpc
 
         cdk.CfnOutput(self, "VpcId", value=self.vpc.vpc_id, export_name=f"{id}-VpcId")
-        cdk.CfnOutput(self, "KmsKeyArn", value=self.kms_key.key.key_arn, export_name=f"{id}-KmsKeyArn")
+        cdk.CfnOutput(
+            self, "KmsKeyArn", value=self.kms_key.key.key_arn, export_name=f"{id}-KmsKeyArn"
+        )
